@@ -5,4 +5,18 @@ body {
 .questions {
     font-size: 24px;
     padding: 10px;
+    
+}
+
+.questionInstructions{
+    text-align: center;
+}
+
+.questionSubsection {
+    text-align: left;
+    padding: 10px;
+}
+
+h3 {
+    font-weight: bold;
 }
