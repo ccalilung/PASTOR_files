@@ -12,47 +12,66 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
-<body>
-        <header>
-                <nav class="navbar navbar-dark bg-dark mb-4">
-                    <div class="container-fluid">
-                        <a class="navbar-brand" href="../index.html">PASTOR</a>
-                        <div class="row">
-                            <div class="col-md-12">
-                            <a class="btn btn-dark" href="dvprs.html">DVPRS</a>
-                            <a class="btn btn-dark" href="PROMIS_pres_pain_misuse_v1.0.html">Prescription Pain Misuse</a>
-                            <a class="btn btn-dark" href="ptsdscreener.html">PTSD Screener</a>
-                            <a class="btn btn-dark" href="treatment_history.html">Treatment History</a>
-                            <a class="btn btn-dark" href="adherence_to_treatment.html">Adherence to Treatment</a>
-                            <a class="btn btn-dark" href="global_health_neuropathic_pain.html">Global Health &amp; Neuropathic Pain </a>
-                            <a class="btn btn-dark" href="headache.html">Headache</a>
-                        </div></div>
-                    </div>
-                </nav>
-        
-        
-            </header>
-<div class="container">
-    <h2>PTSD Screener</h2>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div id="question">
-                <h3>When I'm in pain...</h3>
+<body>
+    <header>
+        <nav class="navbar navbar-dark bg-dark mb-4">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">PASTOR</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-dark" href="dvprs.html">DVPRS</a>
+                        <a class="btn btn-dark" href="PROMIS_pres_pain_misuse_v1.0.html">Prescription Pain Misuse</a>
+                        <a class="btn btn-dark" href="ptsdscreener.html">PTSD Screener</a>
+                        <a class="btn btn-dark" href="treatment_history.html">Treatment History</a>
+                        <a class="btn btn-dark" href="adherence_to_treatment.html">Adherence to Treatment</a>
+                        <a class="btn btn-dark" href="global_health_neuropathic_pain.html">Global Health &amp; Neuropathic Pain </a>
+                        <a class="btn btn-dark" href="headache.html">Headache</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="container">
+        <h2>PTSD Screener</h2>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8"> <h4>Sometimes things happen to people that are unusually or especially frightening, horrible, or traumatic. <br> For example:
+                    <ul>
+                        <li>a serious accident or fire</li>
+                        <li>a physical or sexual assault or abuse</li>
+                        <li>an earthquake or flood</li>
+                        <li>a war</li>
+                        <li>seeing someone be killed or seriously injured</li>
+                        <li>having a loved one die through homicide or suicide</li>
+                    </ul></h4>
+            </div></div>
+            <div class="row text-center"><div class="col-md-12 questions">Have you ever experienced this kind of event?
+                <button type="button" id="yes" class="btn btn-dark answerChoices">Yes</button>
+                <button type="button" class="btn btn-dark answerChoices">No</button>
+            </div></div>
+            <div class="row">
+            <div class="col-md-12">
+                <div id="question">
+                   
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <script>
         var questionChoices = ["Yes", "No"]
 
         var questions = [
-            "In your life, have you ever had any experience that was so frightening, horrible, or upsetting that, in the past month, you: Have had nightmares about it or thought about it when you did not want to?",
-            "In your life, have you ever had any experience that was so frightening, horrible, or upsetting that, in the past month, you: Tried hard not to think about it or went out of your way to avoid situations that reminded you of it?",
-            "In your life, have you ever had any experience that was so frightening, horrible, or upsetting that, in the past month, you: Were constantly on guard, watchful, or easily startled?",
-            "In your life, have you ever had any experience that was so frightening, horrible, or upsetting that, in the past month, you: Felt numb or detached from others, activities, or your surroundings?"
+            "Had nightmares about the event(s) or thought about the event(s) when you did not want to?",
+            "Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?",
+            "Been constantly on guard, watchful, or easily startled?",
+            "Felt numb or detached from people, activities, or your surroundings?",
+            "Felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?"
         ]
 
 
@@ -62,19 +81,21 @@
             for (i = 0; i < questions.length; i++) {
                 var div = $("<div>")
                 var x = questions[i];
-                div.append(i+1 + ") "+x+"<br>").addClass("questions")
+                div.append(i + 1 + ") " + x + "<br>").addClass("questions")
                 $("#question").append(div)
                 var button = $("<button>")
                 for (j = 0; j < questionChoices.length; j++) {
                     button.text(questionChoices[j]).addClass("answerChoices btn btn-dark")
-                    div.append(button)   
+                    div.append(button)
                     button = $("<button>")
                 }
                 div = $("<div>")
             }
         }
-
-        createQuestions();
+        $("#yes").on("click",function(){
+            createQuestions();
+        })
+        
     </script>
     <footer>
     </footer>
