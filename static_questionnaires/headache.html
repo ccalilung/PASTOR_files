@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Headache</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+        <header>
+                <nav class="navbar navbar-dark bg-dark mb-4">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index.html">PASTOR</a>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <a class="btn btn-dark" href="dvprs.html">DVPRS</a>
+                            <a class="btn btn-dark" href="PROMIS_pres_pain_misuse_v1.0.html">Prescription Pain Misuse</a>
+                            <a class="btn btn-dark" href="ptsdscreener.html">PTSD Screener</a>
+                            <a class="btn btn-dark" href="treatment_history.html">Treatment History</a>
+                            <a class="btn btn-dark" href="adherence_to_treatment.html">Adherence to Treatment</a>
+                            <a class="btn btn-dark" href="global_health_neuropathic_pain.html">Global Health &amp; Neuropathic Pain </a>
+                            <a class="btn btn-dark" href="headache.html">Headache</a>
+                        </div></div>
+                    </div>
+                </nav>
+        
+        
+            </header>
+<div class="container">
+    <h2>Headache</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="questions" id="question">
+                1) Do you have problems with headaches?
+                <br>
+                <button type="button" class="answerChoices btn btn-dark" id="yes">Yes</button>
+                <button type="button" class="answerChoices btn btn-dark">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <script>
+        var questionChoices = ["Never", "Rarely", "Sometimes", "Often", "Always"]
+
+        var questions = ["In the past 7 days I was bothered by headaches.",
+            "In the past 7 days Headaches interfered with my daily activities.",
+            "In the past 7 days I had constant pain from headaches.",
+            "In the past 7 days I felt a pounding sensation in my head.",
+            "In the past 7 days I felt sharp pains in my head.",
+            "In the past 7 days I was unable to concentrate because of headaches.",
+            "In the past 7 days I felt a dull throbbing in my head.",
+            "In the past 7 days my head hurt.",
+            "In the past 7 days Headaches interfered with my ability to do things.",
+            "In the past 7 days I was irritable because of headaches."
+        ]
+
+
+
+
+        function createQuestions() {
+           var answers = ["Yes","No"]
+           var button = $("<button>")
+           var div = $("<div>")
+         div.addClass("questions")
+            var a = "2) Were you involved in a battle injury or blast";
+            div.append(a)
+            $("#question").append(div)
+            for (i=0;i<answers.length;i++){
+                button.addClass("answerChoices btn btn-dark").text(answers[i])
+                $("#question").append(button)
+                button = $("<button>")
+            }
+
+            for (i = 0; i < questions.length; i++) {
+                div = $("<div>")
+                var x = questions[i];
+                div.append(i+3+") " + x).addClass("questions")
+                $("#question").append(div)
+                div1 = $("<div>")
+                var button = $("<button>")
+                for (j = 0; j < questionChoices.length; j++) {
+                   button.append(questionChoices[j]).addClass("answerChoices btn btn-dark")
+                   div1.append(button)
+                   div.append(div1)
+                button = $("<button>")
+                }
+              
+            }
+        }
+
+
+
+        $("#yes").on("click", function() {
+            createQuestions();
+        })
+    </script>
+    <footer>
+    </footer>
+
+</body>
+
+</html>

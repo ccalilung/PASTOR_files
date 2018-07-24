@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Treatment History</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+</head>
+<body>
+        <header>
+                <nav class="navbar navbar-dark bg-dark mb-4">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="../index.html">PASTOR</a>
+                        <div class="row">
+                            <div class="col-md-12">
+                            <a class="btn btn-dark" href="dvprs.html">DVPRS</a>
+                            <a class="btn btn-dark" href="PROMIS_pres_pain_misuse_v1.0.html">Prescription Pain Misuse</a>
+                            <a class="btn btn-dark" href="ptsdscreener.html">PTSD Screener</a>
+                            <a class="btn btn-dark" href="treatment_history.html">Treatment History</a>
+                            <a class="btn btn-dark" href="adherence_to_treatment.html">Adherence to Treatment</a>
+                            <a class="btn btn-dark" href="global_health_neuropathic_pain.html">Global Health &amp; Neuropathic Pain </a>
+                            <a class="btn btn-dark" href="headache.html">Headache</a>
+                        </div></div>
+                    </div>
+                </nav>
+        
+        
+            </header>
+<div class="container">
+    <h2>Treatment History</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="question">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        var questions1 = ["Have you used any form of exercise, physical therapy or occupational therapy for pain?",
+            "Have you received any physical modalities such as heat, massage, or TENS for pain?",
+            "Have you received any behavioral treatment (CBT, relaxation, distraction, etc.) for pain?",
+            "Have you taken any muscle relaxants (cyclobenzaprine, methocarbamol, diazepam, etc.) for pain?",
+            "Have you taken any non-steroidal anti-inflammatory (ibuprofen, naproxyn sodium, aspirin, celecoxib), or non-opioid analgesic (acetaminophen, Tylenol) medications for pain?",
+            "Have you taken any neuropathic pain medications (gabapentin, pregabalin, nortriptyline, amitriptyline, desipramine, etc.) for pain?",
+            "Have you received any complementary and integrative therapies such as acupuncture, hypnosis, yoga or meditation for pain?",
+            "Have you taken any opioid medications (oxycodone, morphine, etc.) for pain?",
+            "Have you received any injection therapies (epidural steroid or joint injections, etc.) for pain?",
+            "Have you received any orthopedic or neurosurgical surgeries (spinal fusion, arthroscopic joint surgeries, joint replacement, etc.) for pain?"
+        ]
+        var questionChoices1 = ["No, never", "Yes, currently or within the past year", "Yes, 1-3 years ago",
+            "Yes, more than 3 years ago"
+        ]
+        var questionChoices2 = ["Made pain worse", "Not at all effective", "Slightly effective", "Moderately effective",
+            "Very effective"
+        ]
+        var questions2 = [
+            "Please rate the effectiveness of exercise, physical therapy or occupational therapy in the treatment of your pain.",
+            "Please rate the effectiveness of physical modalities, such as heat, massage, or TENS in the treatment of your pain.",
+            "Please rate the effectiveness of behavioral treatment (CBT, relaxation, distraction, etc.) in the treatment of your pain.",
+            "Please rate the effectiveness of muscle relaxants (cyclobenzaprine, methocarbamol, diazepam, etc.) in the treatment of your pain.",
+            "Please rate the effectiveness of non-steroidal anti-inflammatory or nonopioid analgesic medications in the treatment of your pain.",
+            "Please rate the effectiveness of neuropathic pain medications (gabapentin, pregabalin, nortriptyline, amitriptyline, desipramine, etc.) in the treatment of your pain.",
+            "Please rate the effectiveness of complementary and integrative therapies such as acupuncture, hypnosis, yoga or meditation in the treatment of your pain.",
+            "Please rate the effectiveness of opioid medications (oxycodone, morphine, etc.) in the treatment of your pain.",
+            "Please rate the effectiveness of injection therapies (epidural steroid or joint injections, etc.) in the treatment of your pain.",
+            "Please rate the effectiveness of orthopedic or neurosurgical surgies (spinal fusion, arthroscopic joint surgeries, joint replacement, etc.) in the treatment of your pain."
+        ]
+
+
+
+
+        function createQuestions() {
+
+            for (i = 0; i < questions1.length; i++) {
+                var div = $("<div>");
+                div.append(i + 1 + ") " + questions1[i] + "<br>").addClass("questions")
+                var div1 = $("<div>")
+                var button = $("<button>")
+                div1.addClass("text-left answerChoices")
+                for (j = 0; j < questionChoices1.length; j++) {
+                    button.text(questionChoices1[j]).addClass("answerChoices btn btn-dark")
+                    div1.append(button).append("<br>")
+                    div.append(div1)
+                    button = $("<button>")
+                }
+
+
+                $("#question").append(div)
+
+                div = $("<div>")
+
+                div.attr("id", "question" + i).append(i + 1 + "a) " + questions2[i] + "<br>").addClass("questions")
+                var div1 = $("<div>")
+                var button = $("<button>")
+                div1.addClass("text-left answerChoices")
+
+                for (j = 0; j < questionChoices2.length; j++) {
+                    button.text(questionChoices2[j]).addClass("answerChoices btn btn-dark")
+                    div1.append(button).append("<br>")
+                    div.append(div1)
+                    button = $("<button>")
+                }
+                $("#question").append(div)
+
+            }
+        }
+        createQuestions();
+    </script>
+    <footer>
+    </footer>
+</body>
+
+</html>
