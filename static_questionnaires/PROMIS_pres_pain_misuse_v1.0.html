@@ -40,17 +40,20 @@
     <div class="container">
         <div class="row questionInstructions text-center">
             <div class="col-md-12">
-            <h2>PROMIS SF v1.0 - Prescription Pain Med Misuse
-            </h2>
-            <hr></div></div>
-            <div class="row questionInstructions text-center">
-            <h3>Please respond to each question or statement by marking one button per row.</h3></div>
-            <div class="row">
+                <h2>PROMIS SF v1.0 - Prescription Pain Med Misuse
+                </h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row questionInstructions text-center">
+            <h3>Please respond to each question or statement by marking one button per row.</h3>
+        </div>
+        <div class="row">
             <div class="col-md-12 questions text-left">
                 In the past 3 months, did you have a prescription for pain medication?
                 <br>
                 <button type="button" class="btn btn-secondary" onclick="show()">Yes</button>
-                <button type="button" class="btn btn-secondary">No</button>
+                <button type="button" class="btn btn-secondary" onclick="hide()">No</button>
             </div>
         </div>
         <div id="hideThisIfNo">
@@ -136,8 +139,12 @@
     </div>
 
     <script>
-        document.getElementById("hideThisIfNo").style.visibility = "hidden"
-        function show(){
+        function hide() {
+            document.getElementById("hideThisIfNo").style.visibility = "hidden"
+        }
+        hide();
+
+        function show() {
             document.getElementById("hideThisIfNo").style.visibility = "visible"
         }
     </script>
